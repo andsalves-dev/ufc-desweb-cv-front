@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import userActions from './../../model/actions/user';
 import {Loader} from "react-overlay-loader";
-import {NavLink, Redirect} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {userHomeURL} from "../../model/util/util";
 import {Alert} from "react-bootstrap";
 
@@ -25,7 +25,8 @@ class LoginPage extends PureComponent {
         const {isLoading, user, error} = this.props;
 
         if (user) {
-            return <Redirect to={userHomeURL(user)}/>
+            window.location.href = userHomeURL(user);
+            return null;
         }
 
         return (

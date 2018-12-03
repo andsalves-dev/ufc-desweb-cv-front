@@ -1,11 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import dotenv from 'dotenv';
 import * as serviceWorker from './serviceWorker';
 import AppRouter from './AppRouter';
 import {applyMiddleware, compose, createStore} from 'redux';
 import reducers from './model/reducers';
 import thunk from 'redux-thunk';
-import './axios-bootstrap';
+import * as axios from "axios";
+import {UserStorage} from "./model/util/localStorage";
+
+dotenv.config();
+
+axios.defaults.baseURL = String(process.env.REACT_APP_API_URL);
+
+console.log("axios.defaults.baseURL", axios.defaults.baseURL );
+
+axios.defaults.headers['post']['Content-Type'] = 'application/json';
+axios.defaults.headers['get']['Content-Type'] = 'application/json';
+axios.defaults.headers['patch']['Content-Type'] = 'application/json';
+axios.defaults.headers['put']['Content-Type'] = 'application/json';
+axios.defaults.headers['delete']['Content-Type'] = 'application/json';
+
+const userData = UserStorage.getUserData();
+
+if (userData && userData.jwt) {
+    axios.defaults.headers['common']['X-Api-Token'] = userData.jwt;
+}
 
 const middlewares = [];
 let activateReduxLog = true;
