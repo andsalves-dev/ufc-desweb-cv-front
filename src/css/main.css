@@ -1,0 +1,83 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../node_modules/react-overlay-loader/styles.css";
+@import "../../node_modules/toastr/build/toastr.min.css";
+
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.login-page .panel {
+    max-width: 500px;
+    padding: 15px;
+}
+
+.navbar-fixed-top ~ .page {
+    margin-bottom: 70px;
+}
+
+.cv-sections .card-title {
+    text-transform: uppercase;
+}
+
+.user-photo-wrapper {
+    width: 105px;
+    height: 120px;
+    border: 1px solid #CCC;
+    float: right;
+    background: url('/images/user-default.png') no-repeat center center;
+    background-size: auto 100%;
+    position: relative;
+}
+
+.user-photo-wrapper .img-holder {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.user-photo-wrapper img {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.user-photo-wrapper .btn-change-photo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: -20px;
+
+}
